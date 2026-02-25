@@ -1,4 +1,5 @@
 import dj_database_url
+from decouple import config
 
 """
 Django settings for todo_project project.
@@ -76,12 +77,12 @@ WSGI_APPLICATION = 'todo_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://postgres:nssAPGppdplmqgcpKAQMqMTOxvNFjskA@crossover.proxy.rlwy.net:51129/railway',
-    conn_max_age=600,
-    ssl_require=True
+    'default': dj_database_url.parse(
+        config('DATABASE_URL'),  # gets your secret URL from .env
+        conn_max_age=600,
+        ssl_require=True
     )
-    }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
