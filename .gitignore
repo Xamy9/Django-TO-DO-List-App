@@ -5,3 +5,4 @@ db.sqlite3
 /staticfiles/
 media/
 do_list_env/
+.env
